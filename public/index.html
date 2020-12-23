@@ -21,5 +21,17 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+        if ('%MODE%' === 'development') {
+          // we wrap this in a function to prevent the variables from leaking out
+          (function() { 
+            console.log('[dev] injecting snowpack entry')
+            var snowpackEntryScript = document.createElement('script');
+            snowpackEntryScript.setAttribute('type', 'module');
+            snowpackEntryScript.setAttribute('src', '/_dist_/index.js');
+            document.head.appendChild(snowpackEntryScript);
+          }())
+        }
+      </script>
   </body>
 </html>
