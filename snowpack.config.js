@@ -1,4 +1,9 @@
 /** @type {import("snowpack").SnowpackUserConfig } */
+
+const path = require('path')
+
+const pathResolve = (pathUrl) => path.join(__dirname, pathUrl)
+
 module.exports = {
     mount: {
         public: '/',
@@ -9,13 +14,13 @@ module.exports = {
         '@snowpack/plugin-dotenv',
         '@snowpack/plugin-typescript',
         '@snowpack/plugin-postcss',
-       /*  [
-            '@snowpack/plugin-build-script',
-            { cmd: 'postcss $FILE', input: ['.css'], output: ['.css'] },
-        ], */
+        /*  [
+             '@snowpack/plugin-build-script',
+             { cmd: 'postcss $FILE', input: ['.css'], output: ['.css'] },
+         ], */
     ],
     install: [
-       
+
     ],
     installOptions: {
 
@@ -37,6 +42,16 @@ module.exports = {
         /* ... */
     },
     alias: {
-        '@': './src'
+        '@': pathResolve('src'),
+        '@api': pathResolve('src/api'),
+        '@assets': pathResolve('src/assets'),
+        '@common': pathResolve('src/common'),
+        '@components': pathResolve('src/components'),
+        '@hooks': pathResolve('src/hooks'),
+        '@views':pathResolve('./src/views') ,
+        '@store': pathResolve('src/store'),
+        '@utils': pathResolve('src/utils'),
+        
+
     },
 };

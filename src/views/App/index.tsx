@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import logo from '@/logo.svg';
+import { HashRouter } from 'react-router-dom';
+import { renderRoutes } from 'react-router-config';
+import Nav from '@views/Nav';
+import Login from '@views/Login';
+import routes from '@/router/index';
+
 import './App.css';
 
 interface AppProps {}
@@ -15,7 +20,7 @@ function App({}: AppProps) {
   // Return the App component.
   return (
     <div className="App">
-      <button className="bg-red-500 hover:bg-red-700">{count}</button>
+      <HashRouter>{renderRoutes(routes)}</HashRouter>
     </div>
   );
 }
