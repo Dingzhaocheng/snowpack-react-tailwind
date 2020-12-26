@@ -18,31 +18,31 @@ const SuspenseComponent = (Component: FC) => (props: any) => {
 const Page404 = lazy(() => import('@views/404/index'));
 
 export default [
-  {
+  /* {
+    path: '/',
     component: App,
-    routes: [
-      {
-        path: '/',
-        component: App,
-        routes: [
-          {
-            path: '/login',
-            exact: true,
-            component: SuspenseComponent(Login),
-          },
-          {
-            path: '/nav',
-            exact: true,
-            component: SuspenseComponent(Nav),
-          },
-          // ...等其他页面
-          {
-            path: '/*',
-            exact: true,
-            component: SuspenseComponent(Page404),
-          },
-        ],
-      },
-    ],
+    render: () => <Redirect to={'/home'} />,
+  }, */
+
+  {
+    path: '/home',
+    component: App,
+  },
+
+  {
+    path: '/login',
+    exact: true,
+    component: SuspenseComponent(Login),
+  },
+  {
+    path: '/nav',
+    exact: true,
+    component: SuspenseComponent(Nav),
+  },
+
+  {
+    path: '/*',
+    exact: true,
+    component: SuspenseComponent(Page404),
   },
 ];

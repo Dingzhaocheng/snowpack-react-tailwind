@@ -1,10 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { HashRouter } from 'react-router-dom';
-import { renderRoutes } from 'react-router-config';
-import Nav from '@views/Nav';
-import Login from '@views/Login';
-import routes from '@/router/index';
-
 import './App.css';
 
 interface AppProps {}
@@ -18,11 +12,7 @@ function App({}: AppProps) {
     return () => clearTimeout(timer);
   }, [count, setCount]);
   // Return the App component.
-  return (
-    <div className="App">
-      <HashRouter>{renderRoutes(routes)}</HashRouter>
-    </div>
-  );
+  return <div className="App">home {count}</div>;
 }
 
 export default App;
